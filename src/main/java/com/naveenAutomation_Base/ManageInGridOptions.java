@@ -20,6 +20,7 @@ public class ManageInGridOptions {
 	private EdgeOptions getEdgeOptions() {
 		EdgeOptions options = new EdgeOptions();
 		options.addArguments("--headless=new");
+		options.addArguments("start-maximized");
 		return options;
 
 	}
