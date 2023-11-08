@@ -11,8 +11,7 @@ import com.naveenAutomation_Browsers.Browser;
 public class ManageInGridOptions {
 	private ChromeOptions getChromeOptions() {
 		ChromeOptions options = new ChromeOptions();
-		options.addArguments("--incognito");
-		options.addArguments("--headless=new");
+		options.addArguments("--disable-infobars");
 		return options;
 
 	}
@@ -45,11 +44,11 @@ public class ManageInGridOptions {
 		case CHROME:
 			return this.getChromeOptions();
 
-		case EDGE:
-			return this.getEdgeOptions();
-
-		case FIREFOX:
-			return this.getFireFoxOptions();
+//		case EDGE:
+//			return this.getEdgeOptions();
+//
+//		case FIREFOX:
+//			return this.getFireFoxOptions();
 
 		case SAFARI:
 			return this.getSafariOptions();
