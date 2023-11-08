@@ -2,11 +2,11 @@ package com.naveenAutomation_Browsers;
 
 public enum Browser {
 
-	CHROME("Chrome"), 
+	CHROME("Chrome"),
 	EDGE("Edge"), 
-	FIREFOX("Firefox"),
-	OPERA("Opera "),
+	FIREFOX("Firefox"), 
 	IE("Internet Explorer"),
+	OPERA("Opera"),
 	SAFARI("Safari");
 
 	String browser;
