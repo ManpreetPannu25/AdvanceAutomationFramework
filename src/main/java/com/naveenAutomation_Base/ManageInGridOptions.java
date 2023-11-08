@@ -19,6 +19,7 @@ public class ManageInGridOptions {
 
 	private EdgeOptions getEdgeOptions() {
 		EdgeOptions options = new EdgeOptions();
+		options.setCapability("InPrivate", true);
 		options.addArguments("--headless=new");
 		options.addArguments("start-maximized");
 		return options;
@@ -28,6 +29,7 @@ public class ManageInGridOptions {
 	private FirefoxOptions getFireFoxOptions() {
 		FirefoxOptions options = new FirefoxOptions();
 		options.addArguments("--headless=new");
+		options.addArguments("-private");
 		return options;
 
 	}
