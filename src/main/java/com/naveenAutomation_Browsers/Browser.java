@@ -3,8 +3,7 @@ package com.naveenAutomation_Browsers;
 public enum Browser {
 
 	CHROME("Chrome"), 
-	EDGE("Edge"), 
-	FIREFOX("Firefox"),
+	INTERNET_EXPLORER("Internet Explorer"),
 	OPERA("Opera"),
 	SAFARI("Safari");
 
