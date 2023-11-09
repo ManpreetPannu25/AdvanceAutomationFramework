@@ -1,7 +1,7 @@
 /Extent Reports/
-        /FailedTestCasesScreenShot/
-        /Logs/
-        /allure-results/
-        /target/
-        /test-output/
-        /testng.out.xml/
+/FailedTestCasesScreenShot/
+/Logs/
+/allure-results/
+/target/
+/test-output/
+/testng.out.xml/
