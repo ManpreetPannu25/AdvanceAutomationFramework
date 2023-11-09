@@ -56,13 +56,13 @@ public class TestBase {
 				driver = new ProxyDriver(new ChromeDriver());
 				// driver = new ProxyDriver(WebDriverManager.chromedriver().create());
 				break;
-			case EDGE:
-				driver = new ProxyDriver(new EdgeDriver());
-				break;
-			case FIREFOX:
-				driver = new ProxyDriver(new FirefoxDriver());
+//			case EDGE:
+//				driver = new ProxyDriver(new EdgeDriver());
+//				break;
+//			case FIREFOX:
+//				driver = new ProxyDriver(new FirefoxDriver());
 
-				break;
+//				break;
 
 			default:
 				throw new IllegalArgumentException();

@@ -11,15 +11,17 @@ import com.naveenAutomation_Browsers.Browser;
 public class ManageInGridOptions {
 	private ChromeOptions getChromeOptions() {
 		ChromeOptions options = new ChromeOptions();
-		options.addArguments("--incognito");
-		options.addArguments("--headless=new");
+		options.addArguments("--disable-infobars");
 		return options;
 
 	}
 
 	private EdgeOptions getEdgeOptions() {
 		EdgeOptions options = new EdgeOptions();
+		options.setCapability("InPrivate", true);
+		options.addArguments("start-maximized");
 		options.addArguments("--headless=new");
+		options.addArguments("start-maximized");
 		return options;
 
 	}
@@ -27,6 +29,7 @@ public class ManageInGridOptions {
 	private FirefoxOptions getFireFoxOptions() {
 		FirefoxOptions options = new FirefoxOptions();
 		options.addArguments("--headless=new");
+		options.addArguments("-private");
 		return options;
 
 	}
@@ -41,11 +44,11 @@ public class ManageInGridOptions {
 		case CHROME:
 			return this.getChromeOptions();
 
-		case EDGE:
-			return this.getEdgeOptions();
-
-		case FIREFOX:
-			return this.getFireFoxOptions();
+//		case EDGE:
+//			return this.getEdgeOptions();
+//
+//		case FIREFOX:
+//			return this.getFireFoxOptions();
 
 		case SAFARI:
 			return this.getSafariOptions();
