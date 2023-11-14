@@ -21,7 +21,6 @@ public class ManageInGridOptions {
 		options.setCapability("InPrivate", true);
 		options.addArguments("start-maximized");
 		options.addArguments("--headless=new");
-		options.addArguments("start-maximized");
 		return options;
 
 	}
@@ -44,11 +43,11 @@ public class ManageInGridOptions {
 		case CHROME:
 			return this.getChromeOptions();
 
-//		case EDGE:
-//			return this.getEdgeOptions();
-//
-//		case FIREFOX:
-//			return this.getFireFoxOptions();
+		case EDGE:
+			return this.getEdgeOptions();
+
+		case FIREFOX:
+			return this.getFireFoxOptions();
 
 		case SAFARI:
 			return this.getSafariOptions();

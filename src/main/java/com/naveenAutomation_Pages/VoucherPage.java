@@ -70,9 +70,9 @@ public class VoucherPage extends Page {
 		((ProxyDriver) wd).click(checkbox);
 	}
 
-	public SuccessPage clickSubmitBtn() {
+	public GeneralPage clickSubmitBtn() {
 		((ProxyDriver) wd).click(submitBtn);
-		return new SuccessPage(wd, true);
+		return this.waitForPageToLoad(SuccessVoucherPage.class, VoucherPage.class);
 	}
 
 	public void fillingVoucherForm(String rName, String rEmail, String name, String email, String msg, String amount) {

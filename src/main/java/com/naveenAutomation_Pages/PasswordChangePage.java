@@ -30,11 +30,12 @@ public class PasswordChangePage extends Page {
 		((ProxyDriver) wd).sendKeys(passwordConfirmInput, confirmPassword);
 	}
 
-	public AccountPage submitPasswordChangedContinueBtn(String password, String confirmPassword) {
+	public GeneralPage submitPasswordChangedContinueBtn(String password, String confirmPassword) {
 		((ProxyDriver) wd).sendKeys(passwordInput, password);
 		((ProxyDriver) wd).sendKeys(passwordConfirmInput, confirmPassword);
 		((ProxyDriver) wd).click(continueBtn);
-		return new AccountPage(wd, true);
+		return this.waitForPageToLoad(PasswordChangePage.class, AccountPage.class);
+
 	}
 
 	@Override

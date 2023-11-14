@@ -7,32 +7,29 @@ import org.testng.annotations.Test;
 
 import com.naveenAutomation_Base.TestBase;
 import com.naveenAutomation_Pages.AccountPage;
+import com.naveenAutomation_Pages.AffiliateEditPage;
+import com.naveenAutomation_Pages.ContactPage;
 import com.naveenAutomation_Pages.LoginPage;
-import com.naveenAutomation_Pages.SideNavImplementation;
-import com.naveenAutomation_Pages.SideNavigationBar;
-import com.naveenAutomation_Pages.WishListPage;
-import io.qameta.allure.Severity;
-import io.qameta.allure.SeverityLevel;
 
-public class WishListPageTest extends TestBase {
+public class AffiliatePageTest extends TestBase {
 	LoginPage loginPage;
+	ContactPage contactPage;
 	AccountPage accountPage;
-	WishListPage wishListPage;
+	AffiliateEditPage affiliateEditPage;
 
 	@BeforeMethod
 	public void browserLaunch() {
 		initialisation();
 		loginPage = new LoginPage(driver, false).get();
-
 	}
 
-	@Severity(SeverityLevel.NORMAL)
 	@Test
-	public void validateUserCanNavigateToWishListPageWithSuccessMsg() {
+	public void validateWarningMsgWithInvalidPayeeNameCharToEditAffiliateInfo() {
 		accountPage = (AccountPage) loginPage.loginPageSubmission("Manpreet202025@yahoo.com", "Manu1234");
-		wishListPage = (WishListPage) new SideNavImplementation(driver, false)
-				.OpenPageByClickOnSideNavBar(SideNavigationBar.WISH_LIST);
-		Assert.assertEquals(wishListPage.wishListMsgText(), "Your wish list is empty.", "Wish list page Not Found");
+		affiliateEditPage = accountPage.affilateLinkClick();
+		affiliateEditPage.fillingAffiliateForm("Summer fresh", "https://manpreet-pannu.com", "1111", "");
+		Assert.assertEquals(affiliateEditPage.invalidPayeeNameMsgText(), "Cheque Payee Name required!",
+				"successful Registration for affiliate program");
 	}
 
 	@AfterMethod

@@ -30,7 +30,7 @@ public class RecurringPageTest extends TestBase {
 	@Severity(SeverityLevel.NORMAL)
 	@Test
 	public void validateUserCanNavigateToRecurringPaymentsPageWithSuccessMsg() {
-		accountPage = loginPage.loginPageSubmission("Manpreet202025@yahoo.com", "Manu1234");
+		accountPage = (AccountPage) loginPage.loginPageSubmission("Manpreet202025@yahoo.com", "Manu1234");
 		recurringPaymentsPage = (RecurringPaymentsPage) new SideNavImplementation(driver, false)
 				.OpenPageByClickOnSideNavBar(SideNavigationBar.RECURRING_PAYMENTS);
 		Assert.assertEquals(recurringPaymentsPage.recurringPaymentsMsgText(), "No recurring payments found!",

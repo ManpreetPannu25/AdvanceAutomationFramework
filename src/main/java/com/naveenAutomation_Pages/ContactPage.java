@@ -46,15 +46,16 @@ public class ContactPage extends Page {
 		((ProxyDriver) wd).sendKeys(enquiryInput, enquiry);
 	}
 
-	public void enterSubmitBtn() {
+	public GeneralPage enterSubmitBtn() {
 		((ProxyDriver) wd).submit(submitBtn);
+		return this.waitForPageToLoad(SuccessContactPage.class, ContactPage.class);
 	}
 
 	public void fillingEnquiryForm(String name, String email, String enquiry) {
 		enterNameInput(name);
 		enterEmailInput(email);
 		enterEnquiryInput(enquiry);
-		enterSubmitBtn();
+
 	}
 
 	@Override

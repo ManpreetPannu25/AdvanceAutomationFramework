@@ -179,7 +179,7 @@ public class ProxyDriver implements WebDriver, JavascriptExecutor, TakesScreensh
 	}
 
 	public void submit(By by) {
-		waitForElementToBeClickable(by, 10).submit();
+		waitForElementToBeClickable(by, 20).submit();
 	}
 
 	public void clear(By by) {

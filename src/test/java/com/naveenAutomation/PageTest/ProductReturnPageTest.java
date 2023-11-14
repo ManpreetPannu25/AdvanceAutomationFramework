@@ -19,7 +19,7 @@ public class ProductReturnPageTest extends TestBase {
 
 	LoginPage loginPage;
 	AccountPage accountPage;
-	ProductReturnPage returnPage;
+	ProductReturnPage productReturnPage;
 
 	@BeforeMethod
 	public void browserLaunch() {
@@ -30,10 +30,10 @@ public class ProductReturnPageTest extends TestBase {
 	@Severity(SeverityLevel.NORMAL)
 	@Test
 	public void validateUserProductReturnsMessage() {
-		accountPage = loginPage.loginPageSubmission("Manpreet202025@yahoo.com", "Manu1234");
-		returnPage = (ProductReturnPage) new SideNavImplementation(driver, false)
+		accountPage = (AccountPage) loginPage.loginPageSubmission("Manpreet202025@yahoo.com", "Manu1234");
+		productReturnPage = (ProductReturnPage) new SideNavImplementation(driver, false)
 				.OpenPageByClickOnSideNavBar(SideNavigationBar.RETURNS);
-		Assert.assertEquals(returnPage.productReturnsMsgText(), "You have not made any previous returns!",
+		Assert.assertEquals(productReturnPage.productReturnsMsgText(), "You have not made any previous returns!",
 				"No Product return Message displayed");
 
 	}

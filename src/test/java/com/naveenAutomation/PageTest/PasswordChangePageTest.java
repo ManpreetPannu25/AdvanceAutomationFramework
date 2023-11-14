@@ -26,7 +26,7 @@ public class PasswordChangePageTest extends TestBase {
 
 	@Test(dataProvider = "UserMismatchedInputPasswords")
 	public void validateNoPswrdUpdateWithMismatchPswrdInputs(String password, String confirmedPassword) {
-		accountPage = loginPage.loginPageSubmission("Manpreet202025@yahoo.com", "Manu1234");
+		accountPage = (AccountPage) loginPage.loginPageSubmission("Manpreet202025@yahoo.com","Manu1234");
 		passwordChangePage = (PasswordChangePage) new SideNavImplementation(driver, false)
 				.OpenPageByClickOnSideNavBar(SideNavigationBar.PASSWORD);
 		passwordChangePage.submitPasswordChangedContinueBtn(password, confirmedPassword);

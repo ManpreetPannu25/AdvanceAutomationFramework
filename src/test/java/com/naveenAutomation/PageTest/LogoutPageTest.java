@@ -29,7 +29,7 @@ public class LogoutPageTest extends TestBase {
 	@Severity(SeverityLevel.NORMAL)
 	@Test
 	public void validateLogoutSuccessMsg() {
-		accountPage = loginPage.loginPageSubmission("Manpreet202025@yahoo.com", "Manu1234");
+		accountPage = (AccountPage) loginPage.loginPageSubmission("Manpreet202025@yahoo.com", "Manu1234");
 		logoutPage = (LogoutPage) new SideNavImplementation(driver, false)
 				.OpenPageByClickOnSideNavBar(SideNavigationBar.LOGOUT);
 		Assert.assertEquals(logoutPage.accountLogoutSuccessMsgText(), "Account Logout", "Account Not Logged Out");

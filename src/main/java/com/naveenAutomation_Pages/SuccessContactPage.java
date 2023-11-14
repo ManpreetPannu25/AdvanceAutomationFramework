@@ -5,19 +5,20 @@ import org.openqa.selenium.WebDriver;
 
 import com.naveenAutomation_ProxyDriver.ProxyDriver;
 
-public class ProductCategory_TabPage extends Page {
-	public static final String PAGE_URL = "/opencart/index.php?route=product/category&path=57";
+public class SuccessContactPage extends Page {
+	public static final String PAGE_URL = "/opencart/index.php?route=information/contact/success";
 
-	public ProductCategory_TabPage(WebDriver wd, boolean waitForPageToLoad) {
+	public SuccessContactPage(WebDriver wd, boolean waitForPageToLoad) {
 		super(wd, waitForPageToLoad);
-	}
-
-	private static final By price = By.xpath("//span[text()='Ex Tax: $199.99']");
-
-	public String priceText() {
-		return ((ProxyDriver) wd).getText(price);
 
 	}
+
+	private static final By enquirySuccessMsg = By.cssSelector("#content>p");
+
+	public String enquirySuccessMsgText() {
+		return ((ProxyDriver) wd).getText(enquirySuccessMsg);
+	}
+
 	@Override
 	protected void isLoaded() {
 		if (!urlContains(wd.getCurrentUrl())) {

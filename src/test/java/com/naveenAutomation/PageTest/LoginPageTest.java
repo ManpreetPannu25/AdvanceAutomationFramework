@@ -25,14 +25,14 @@ public class LoginPageTest extends TestBase {
 	@Severity(SeverityLevel.BLOCKER)
 	@Test
 	public void validateUserLoginWithValidCredentials() {
-		accountPage = loginPage.loginPageSubmission("Manpreet202025@yahoo.com", "Manu1234");
+		accountPage = (AccountPage) loginPage.loginPageSubmission("Manpreet202025@yahoo.com", "Manu1234");
 		Assert.assertEquals(accountPage.myAccountTextMsg(), "My Account", "Unsuccessfull Login");
 	}
 
 	@Severity(SeverityLevel.BLOCKER)
 	@Test
 	public void validateUserFailedLoginWithInValidCredentials() {
-		loginPage.loginPageSubmission("Manpreet202025@yahoo.com", "Manu1234Manu");
+		loginPage = (LoginPage) loginPage.loginPageSubmission("Manpreet202025@yahoo.com", "Manu1234Manu");
 		Assert.assertEquals(loginPage.loginFailedAlertText(), "Warning: No match for E-Mail Address and/or Password.",
 				"Successfull Login");
 	}

@@ -29,7 +29,7 @@ public class TransactionPageTest extends TestBase {
 	@Severity(SeverityLevel.NORMAL)
 	@Test
 	public void validateUserCanNavigateToTransactionPageWithSuccessMsg() {
-		accountPage = loginPage.loginPageSubmission("Manpreet202025@yahoo.com", "Manu1234");
+		accountPage = (AccountPage) loginPage.loginPageSubmission("Manpreet202025@yahoo.com", "Manu1234");
 		transactionPage = (TransactionPage) new SideNavImplementation(driver, false)
 				.OpenPageByClickOnSideNavBar(SideNavigationBar.TRANSACTIONS);
 		Assert.assertEquals(transactionPage.transactionMsgText(), "You do not have any transactions!",

@@ -18,20 +18,44 @@ public class AccountPage extends Page {
 	private static final By tabletsLink = By.xpath("//a[text()='Tablets']");
 	private static final By phonePdaLink = By.xpath("//a[text()='Phones & PDAs']");
 	private static final By camerasLink = By.xpath("//a[text()='Cameras']");
+	private static final By addressBookEntryLink = By.xpath("//a[text()='Modify your address book entries']");
+	private static final By returnsLink = By.xpath("//h5[text()='Customer Service']/following::li[2]/a");
+	private static final By affilateLink = By.xpath("//a[text()='Edit your affiliate information']");
+	private static final By affiliateRegistrSuccessMsg = By.cssSelector("div.alert.alert-success.alert-dismissible");
+
+	public String affiliateRegistrSuccessMsgMsg() {
+		return ((ProxyDriver) wd).getText(affiliateRegistrSuccessMsg);
+	}
+
+	public AccountAddressPage addressBookEntryLinkClick() {
+		((ProxyDriver) wd).click(addressBookEntryLink);
+		return new AccountAddressPage(wd, true);
+	}
+
+	public AffiliateEditPage affilateLinkClick() {
+		((ProxyDriver) wd).click(affilateLink);
+		return new AffiliateEditPage(wd, true);
+	}
+
+	public ReturnAddProductPage returnsLinkClick() {
+		((ProxyDriver) wd).click(returnsLink);
+		return new ReturnAddProductPage(wd, true);
+	}
 
 	public ProductCategory_CamerasPage camerasLinkClick() {
-		((ProxyDriver) wd).getText(camerasLink);
+		((ProxyDriver) wd).click(camerasLink);
 		return new ProductCategory_CamerasPage(wd, true);
 	}
 
-	public ProductCategory_TabPage tabletsLinkClickLink() {
-		((ProxyDriver) wd).getText(tabletsLink);
-		return new ProductCategory_TabPage(wd, true);
+	public GeneralPage tabletsLinkClickLink() {
+		((ProxyDriver) wd).click(tabletsLink);
+		return this.waitForPageToLoad(ProductCategory_TabPage.class, AccountPage.class);
+
 	}
 
-	public ProductCategory_PhonesPage phonePdaLinkClick() {
-		((ProxyDriver) wd).getText(phonePdaLink);
-		return new ProductCategory_PhonesPage(wd, true);
+	public GeneralPage phonePdaLinkClick() {
+		((ProxyDriver) wd).click(phonePdaLink);
+		return this.waitForPageToLoad(ProductCategory_PhonesPage.class, AccountPage.class);
 	}
 
 	public String myAccountTextMsg() {

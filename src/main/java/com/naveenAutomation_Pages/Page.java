@@ -1,6 +1,9 @@
 package com.naveenAutomation_Pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 public abstract class Page extends GeneralPage {
 
@@ -11,6 +14,11 @@ public abstract class Page extends GeneralPage {
 		if (waitForPageToLoad) {
 			this.waitForPageToLoad();
 		}
+	}
+	public void selectByVisibleText(WebElement element, String visibleText) {
+		Select sc = new Select(element);
+		sc.selectByVisibleText(visibleText);
+
 	}
 
 	public String getDomain() {

@@ -27,7 +27,7 @@ public class RewardsPointPageTest extends TestBase {
 	@Severity(SeverityLevel.NORMAL)
 	@Test
 	public void validateUserCanNavigateToRewardsPointPageWithSuccessMsg() {
-		accountPage = loginPage.loginPageSubmission("Manpreet202025@yahoo.com", "Manu1234");
+		accountPage = (AccountPage) loginPage.loginPageSubmission("Manpreet202025@yahoo.com", "Manu1234");
 		rewardsPointPage = (RewardsPointPage) new SideNavImplementation(driver, false)
 				.OpenPageByClickOnSideNavBar(SideNavigationBar.REWARD_POINTS);
 		Assert.assertEquals(rewardsPointPage.rewardsPointMsgText(), "You do not have any reward points!",

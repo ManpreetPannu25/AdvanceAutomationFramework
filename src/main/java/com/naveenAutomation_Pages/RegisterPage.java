@@ -15,13 +15,13 @@ public class RegisterPage extends Page {
 
 	private static final By firstNameInput = By.id("input-firstname");
 	private static final By lastNameInput = By.id("input-lastname");
-	private static final By inputEmail = By.cssSelector("input-email");
-	private static final By telephoneInput = By.cssSelector("input-telephone");
-	private static final By passwordInput = By.cssSelector("input-password");
-	private static final By passwordConfirmInput = By.cssSelector("input-confirm");
+	private static final By inputEmail = By.id("input-email");
+	private static final By telephoneInput = By.id("input-telephone");
+	private static final By passwordInput = By.id("input-password");
+	private static final By passwordConfirmInput = By.id("input-confirm");
 	private static final By policyCheckBox = By.cssSelector("input[type='checkbox']");
 	private static final By continueButton = By.cssSelector("input[type='submit']");
-	private static final By invalidEmailWarning = By.cssSelector("input[type='submit']");
+	private static final By invalidEmailWarning = By.cssSelector("div.text-danger");
 	private static final By fNameCharWarning = By.cssSelector("div.text-danger");
 	private static final By lNameCharWarning = By.cssSelector("div.text-danger");
 	private static final By pswrdNotMatchedWarning = By.cssSelector("div.text-danger");
@@ -85,9 +85,10 @@ public class RegisterPage extends Page {
 		((ProxyDriver) wd).click(policyCheckBox);
 	}
 
-	public SuccessPage clickContinueButton() {
+	public GeneralPage clickContinueButton() {
 		((ProxyDriver) wd).click(continueButton);
-		return new SuccessPage(wd, true);
+		return this.waitForPageToLoad(SuccessPage.class, RegisterPage.class);
+
 	}
 
 	public void fillingRegistrationForm(String firstName, String lastName, String email, String telephone,

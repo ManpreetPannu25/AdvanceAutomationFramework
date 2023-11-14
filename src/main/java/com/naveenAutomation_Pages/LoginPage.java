@@ -50,12 +50,11 @@ public class LoginPage extends Page {
 		((ProxyDriver) wd).sendKeys(passwordInput, password);
 	}
 
-	public AccountPage loginPageSubmission(String email, String password) {
+	public GeneralPage loginPageSubmission(String email, String password) {
 		enterEmail(email);
 		enterPassword(password);
 		((ProxyDriver) wd).click(loginBtn);
-		// return this.waitForPageToLoad(LoginPage.class,AccountPage.class);
-		return new AccountPage(wd, true);
+		return this.waitForPageToLoad(AccountPage.class, LoginPage.class);
 	}
 
 	public String loginFailedAlertText() {

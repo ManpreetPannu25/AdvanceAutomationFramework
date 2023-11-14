@@ -31,7 +31,7 @@ public class HomePageTest extends TestBase {
 	@Severity(SeverityLevel.NORMAL)
 	@Test
 	public void validateNavigationToHomePageAfterLogOut() {
-		accountPage = loginPage.loginPageSubmission("Manpreet202025@yahoo.com", "Manu1234");
+		accountPage = (AccountPage) loginPage.loginPageSubmission("Manpreet202025@yahoo.com", "Manu1234");
 		logoutPage = (LogoutPage) new SideNavImplementation(driver, false)
 				.OpenPageByClickOnSideNavBar(SideNavigationBar.LOGOUT);
 		homePage = logoutPage.clickContinueAfterLogOut();

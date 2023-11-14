@@ -24,7 +24,7 @@ public class VoucherPageTest extends TestBase {
 		voucherPage = loginPage.giftCertificateLinkClick();
 		voucherPage.fillingVoucherForm("", "harry@gmail.com", "garry", "garry@yahoo.com", "Happy bday", "1");
 		voucherPage.clickCheckBox();
-		voucherPage.clickSubmitBtn();
+		voucherPage = (VoucherPage) voucherPage.clickSubmitBtn();
 		Assert.assertEquals(voucherPage.invalidrecipientsNameWarningText(),
 				"Recipient's Name must be between 1 and 64 characters!", "Unsuccessfull Gift Certificate Purchase");
 	}
@@ -34,7 +34,7 @@ public class VoucherPageTest extends TestBase {
 		voucherPage = loginPage.giftCertificateLinkClick();
 		voucherPage.fillingVoucherForm("harry", "harry@gmail.com", "garry", "g", "Happy bday", "1");
 		voucherPage.clickCheckBox();
-		voucherPage.clickSubmitBtn();
+		voucherPage = (VoucherPage) voucherPage.clickSubmitBtn();
 		Assert.assertEquals(voucherPage.invalidrecipientsEmailWarningText(),
 				"E-Mail Address does not appear to be valid!", "Unsuccessfull Gift Certificate Purchase");
 	}
@@ -43,7 +43,7 @@ public class VoucherPageTest extends TestBase {
 	public void validateWarningMsgIfCheckBoxIsSkipped() {
 		voucherPage = loginPage.giftCertificateLinkClick();
 		voucherPage.fillingVoucherForm("harry", "harry@gmail.com", "garry", "garry@yahoo.com", "Happy bday", "1");
-		voucherPage.clickSubmitBtn();
+		voucherPage = (VoucherPage) voucherPage.clickSubmitBtn();
 		Assert.assertEquals(voucherPage.giftCertificateWarningText(),
 				"Warning: You must agree that the gift certificates are non-refundable!",
 				"Unsuccessfull Gift Certificate Purchase");

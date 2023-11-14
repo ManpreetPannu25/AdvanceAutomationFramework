@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 
 import com.naveenAutomation_Base.TestBase;
 import com.naveenAutomation_Pages.AccountPage;
+import com.naveenAutomation_Pages.AffiliateEditPage;
 import com.naveenAutomation_Pages.InfoEditPage;
 import com.naveenAutomation_Pages.LoginPage;
 import com.naveenAutomation_Pages.NewsletterPage;
@@ -23,6 +24,7 @@ public class AccountPageTest extends TestBase {
 	InfoEditPage editPage;
 	NewsletterPage newsletterPage;
 	PasswordChangePage passwordChangePage;
+	AffiliateEditPage affiliateEditPage;
 
 	@BeforeMethod
 	public void browserLaunch() {
@@ -33,7 +35,7 @@ public class AccountPageTest extends TestBase {
 	@Severity(SeverityLevel.NORMAL)
 	@Test
 	public void validateUserCanUpdateAccountInfo() {
-		accountPage = loginPage.loginPageSubmission("Manpreet202025@yahoo.com", "Manu1234");
+		accountPage = (AccountPage) loginPage.loginPageSubmission("Manpreet202025@yahoo.com", "Manu1234");
 		editPage = (InfoEditPage) new SideNavImplementation(driver, false)
 				.OpenPageByClickOnSideNavBar(SideNavigationBar.EDIT_ACCOUNT);
 		editPage.enterFirstName("Harpreet");
@@ -46,7 +48,7 @@ public class AccountPageTest extends TestBase {
 	@Severity(SeverityLevel.NORMAL)
 	@Test
 	public void validateNewsletterSubscriptionUpdatedSuccessMsg() {
-		accountPage = loginPage.loginPageSubmission("Manpreet202025@yahoo.com", "Manu1234");
+		accountPage = (AccountPage) loginPage.loginPageSubmission("Manpreet202025@yahoo.com", "Manu1234");
 		newsletterPage = (NewsletterPage) new SideNavImplementation(driver, false)
 				.OpenPageByClickOnSideNavBar(SideNavigationBar.NEWSLETTER);
 		accountPage = newsletterPage.submitNewsletterSubscription();
@@ -57,12 +59,23 @@ public class AccountPageTest extends TestBase {
 
 	@Test(enabled = false)
 	public void validatePasswordUpdatedSuccessMsg() {
-		accountPage = loginPage.loginPageSubmission("Manpreet202025@yahoo.com", "Manu1234");
+		accountPage = (AccountPage) loginPage.loginPageSubmission("Manpreet202025@yahoo.com", "Manu1234");
 		passwordChangePage = (PasswordChangePage) new SideNavImplementation(driver, false)
 				.OpenPageByClickOnSideNavBar(SideNavigationBar.PASSWORD);
-		accountPage = passwordChangePage.submitPasswordChangedContinueBtn("Manu12345", "Manu12345");
+		accountPage = (AccountPage) passwordChangePage.submitPasswordChangedContinueBtn("Manu12345", "Manu12345");
 		Assert.assertEquals(accountPage.passwordUpdatedSuccessMsgText(),
 				"Success: Your password has been successfully updated.", "Password not Changed");
+	}
+
+	@Test
+	public void validateSuccessMsgForAffiliateRegistrationWithValidCredentials() {
+		accountPage = (AccountPage) loginPage.loginPageSubmission("Manpreet202025@yahoo.com", "Manu1234");
+		affiliateEditPage = accountPage.affilateLinkClick();
+		accountPage = (AccountPage) affiliateEditPage.fillingAffiliateForm("Summer fresh", "https://manpreet-pannu.com",
+				"1111", "Manpreet");
+		Assert.assertEquals(accountPage.affiliateRegistrSuccessMsgMsg(),
+				"Success: Your account has been successfully updated.",
+				"Unsuccessful Registration for affiliate program");
 	}
 
 	@AfterMethod

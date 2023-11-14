@@ -9,7 +9,9 @@ import com.naveenAutomation_Base.TestBase;
 import com.naveenAutomation_Pages.ContactPage;
 import com.naveenAutomation_Pages.LoginPage;
 import com.naveenAutomation_Pages.RegisterPage;
+import com.naveenAutomation_Pages.SuccessContactPage;
 import com.naveenAutomation_Pages.SuccessPage;
+import com.naveenAutomation_Pages.SuccessVoucherPage;
 import com.naveenAutomation_Pages.VoucherPage;
 
 import io.qameta.allure.Severity;
@@ -21,6 +23,8 @@ public class SuccessPageTest extends TestBase {
 	SuccessPage successPage;
 	ContactPage contactPage;
 	VoucherPage voucherPage;
+	SuccessContactPage successContactPage;
+	SuccessVoucherPage successVoucherPage;
 
 	@BeforeMethod
 	public void browserLaunch() {
@@ -32,10 +36,10 @@ public class SuccessPageTest extends TestBase {
 	@Test
 	public void validateSuccessMsgAfterRegistrationWithValidCredentials() {
 		registerPage = loginPage.continueToRegisterClick();
-		registerPage.fillingRegistrationForm("Harry", "Sharma", "harrry@yaoo.com", "123456777", "Harry1234",
+		registerPage.fillingRegistrationForm("Harry", "Sharmaan", "hungryy@yahoo.com", "123456777", "Harry1234",
 				"Harry1234");
 		registerPage.clickPolicyCheckBox();
-		successPage = registerPage.clickContinueButton();
+		successPage = (SuccessPage) registerPage.clickContinueButton();
 		Assert.assertEquals(successPage.successMsgText(), "Your Account Has Been Created!",
 				"Registration Unsuccessfull");
 	}
@@ -44,7 +48,8 @@ public class SuccessPageTest extends TestBase {
 	public void validateSuccessMsgAfterSendingEnquiryWithValidCredentials() {
 		contactPage = loginPage.contactUsClick();
 		contactPage.fillingEnquiryForm("Manpreet", "manpreet202025@yahoo.com", "Need More Product Information");
-		Assert.assertEquals(successPage.enquirySuccessMsgText(),
+		successContactPage = (SuccessContactPage) contactPage.enterSubmitBtn();
+		Assert.assertEquals(successContactPage.enquirySuccessMsgText(),
 				"Your enquiry has been successfully sent to the store owner!", "Enquiry Not Sent");
 	}
 
@@ -53,8 +58,8 @@ public class SuccessPageTest extends TestBase {
 		voucherPage = loginPage.giftCertificateLinkClick();
 		voucherPage.fillingVoucherForm("harry", "harry@gmail.com", "garry", "garry@yahoo.com", "Happy bday", "1");
 		voucherPage.clickCheckBox();
-		successPage = voucherPage.clickSubmitBtn();
-		Assert.assertEquals(successPage.giftVoucherSuccessMsgText(),
+		successVoucherPage = (SuccessVoucherPage) voucherPage.clickSubmitBtn();
+		Assert.assertEquals(successVoucherPage.giftVoucherSuccessMsgText(),
 				"Thank you for purchasing a gift certificate! Once you have completed your order your gift certificate recipient will be sent an e-mail with details how to redeem their gift certificate.",
 				"Unsuccessfull Gift Certificate Purchase");
 	}

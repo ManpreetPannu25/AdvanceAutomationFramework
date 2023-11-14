@@ -26,6 +26,22 @@
 				name="com.naveenAutomation.PageTest.RewardsPointPageTest" />
 			<class name="com.naveenAutomation.PageTest.HomePageTest" />
 			<class name="com.naveenAutomation.PageTest.TransactionPageTest" />
+			<class name="com.naveenAutomation.PageTest.ContactPageTest" />
+			<class
+				name="com.naveenAutomation.PageTest.ManufacturerPageTest" />
+
+			<class
+				name="com.naveenAutomation.PageTest.ProductCategory_TabPageTest" />
+			<class name="com.naveenAutomation.PageTest.RegisterPageTest" />
+			<class name="com.naveenAutomation.PageTest.SuccessPageTest" />
+			<class name="com.naveenAutomation.PageTest.VoucherPageTest" />
+			<class name="com.naveenAutomation.PageTest.ReturnAddPageTest" />
+			<class name="com.naveenAutomation.PageTest.AffiliatePageTest" />
+			<class
+				name="com.naveenAutomation.PageTest.AccountAddressPageTest" />
+			<class
+				name="com.naveenAutomation.PageTest.AccountAddressEditPageTest" />
+
 		</classes>
 	</test> <!-- Test -->
 </suite> <!-- Suite -->

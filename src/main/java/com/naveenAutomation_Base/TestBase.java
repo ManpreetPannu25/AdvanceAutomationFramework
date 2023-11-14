@@ -13,17 +13,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.manager.SeleniumManager;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.testng.annotations.BeforeClass;
 
 import com.naveenAutomation_Browsers.Browser;
 import com.naveenAutomation_Environment.Environment;
 import com.naveenAutomation_ProxyDriver.ProxyDriver;
-import com.naveenAutomation_Utils.WebDriverEvents;
-
-import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class TestBase {
 	public static WebDriver driver;
@@ -56,13 +51,12 @@ public class TestBase {
 				driver = new ProxyDriver(new ChromeDriver());
 				// driver = new ProxyDriver(WebDriverManager.chromedriver().create());
 				break;
-//			case EDGE:
-//				driver = new ProxyDriver(new EdgeDriver());
-//				break;
-//			case FIREFOX:
-//				driver = new ProxyDriver(new FirefoxDriver());
-
-//				break;
+			case EDGE:
+				driver = new ProxyDriver(new EdgeDriver());
+				break;
+			case FIREFOX:
+				driver = new ProxyDriver(new FirefoxDriver());
+				break;
 
 			default:
 				throw new IllegalArgumentException();
