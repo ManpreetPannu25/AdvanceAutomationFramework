@@ -36,7 +36,7 @@ public class SuccessPageTest extends TestBase {
 	@Test
 	public void validateSuccessMsgAfterRegistrationWithValidCredentials() {
 		registerPage = loginPage.continueToRegisterClick();
-		registerPage.fillingRegistrationForm("Harry", "Sharmaan", "hungryy@yahoo.com", "123456777", "Harry1234",
+		registerPage.fillingRegistrationForm("Harry", "Sharmaan", "hungy@yahoo.com", "123456777", "Harry1234",
 				"Harry1234");
 		registerPage.clickPolicyCheckBox();
 		successPage = (SuccessPage) registerPage.clickContinueButton();

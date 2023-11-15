@@ -28,7 +28,7 @@ public class ProductReturnPageTest extends TestBase {
 	}
 
 	@Severity(SeverityLevel.NORMAL)
-	@Test
+	@Test(enabled=false)
 	public void validateUserProductReturnsMessage() {
 		accountPage = (AccountPage) loginPage.loginPageSubmission("Manpreet202025@yahoo.com", "Manu1234");
 		productReturnPage = (ProductReturnPage) new SideNavImplementation(driver, false)

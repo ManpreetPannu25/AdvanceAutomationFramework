@@ -16,8 +16,6 @@ public class AccountPage extends Page {
 	private static final By newsletterSuccessMsg = By.cssSelector("div.alert-success");
 	private static final By passwordUpdatedSuccessMsg = By.cssSelector("div.alert-success");
 	private static final By tabletsLink = By.xpath("//a[text()='Tablets']");
-	private static final By phonePdaLink = By.xpath("//a[text()='Phones & PDAs']");
-	private static final By camerasLink = By.xpath("//a[text()='Cameras']");
 	private static final By addressBookEntryLink = By.xpath("//a[text()='Modify your address book entries']");
 	private static final By returnsLink = By.xpath("//h5[text()='Customer Service']/following::li[2]/a");
 	private static final By affilateLink = By.xpath("//a[text()='Edit your affiliate information']");
@@ -42,20 +40,10 @@ public class AccountPage extends Page {
 		return new ReturnAddProductPage(wd, true);
 	}
 
-	public ProductCategory_CamerasPage camerasLinkClick() {
-		((ProxyDriver) wd).click(camerasLink);
-		return new ProductCategory_CamerasPage(wd, true);
-	}
-
 	public GeneralPage tabletsLinkClickLink() {
 		((ProxyDriver) wd).click(tabletsLink);
 		return this.waitForPageToLoad(ProductCategory_TabPage.class, AccountPage.class);
 
-	}
-
-	public GeneralPage phonePdaLinkClick() {
-		((ProxyDriver) wd).click(phonePdaLink);
-		return this.waitForPageToLoad(ProductCategory_PhonesPage.class, AccountPage.class);
 	}
 
 	public String myAccountTextMsg() {
