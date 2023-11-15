@@ -81,12 +81,8 @@ public class TestBase {
 	}
 
 	public void tearDown() {
-		try {
-			driver.quit();
-		} finally {
-			driver.quit();
-		}
 
+		driver.quit();
 	}
 
 }
