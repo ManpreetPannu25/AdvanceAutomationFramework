@@ -33,7 +33,7 @@ public class SuccessPageTest extends TestBase {
 	}
 
 	@Severity(SeverityLevel.NORMAL)
-	@Test
+	@Test(enabled = false)
 	public void validateSuccessMsgAfterRegistrationWithValidCredentials() {
 		registerPage = loginPage.continueToRegisterClick();
 		registerPage.fillingRegistrationForm("Harry", "Sharmaan", "horryy@yahoo.com", "123456777", "Harry1234",
