@@ -10,6 +10,10 @@ public enum Browser {
 	OPERA("Opera"),
 	SAFARI("Safari");
 
+	public String getBrowser() {
+		return browser;
+	}
+
 	String browser;
 
 	private Browser(String browser) {

@@ -26,6 +26,7 @@ public class TestBase {
 	private final Browser DEFAULT_BROWSER = Browser.CHROME;
 	public static Logger logger;
 	public static final boolean RUN_ON_GRID = false;
+	private String browserInput;
 //	public WebDriverEvents events;
 //	public EventFiringWebDriver e_driver;
 
@@ -39,22 +40,23 @@ public class TestBase {
 	}
 
 	public void initialisation() {
+		 browserInput = System.getProperty("BrowserType");
 		if (RUN_ON_GRID) {
 			try {
-				driver = new RemoteWebDriver(new URL("http://192.168.2.15:4444"), getOption());
+				driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), getOption());
 			} catch (MalformedURLException e) {
 				e.printStackTrace();
 			}
 		} else {
-			switch (DEFAULT_BROWSER) {
-			case CHROME:
+			 switch (browserInput.toUpperCase()) {
+			//switch (DEFAULT_BROWSER) {
+			case "CHROME":
 				driver = new ProxyDriver(new ChromeDriver());
-				// driver = new ProxyDriver(WebDriverManager.chromedriver().create());
 				break;
-			case EDGE:
+			case "EDGE":
 				driver = new ProxyDriver(new EdgeDriver());
 				break;
-			case FIREFOX:
+			case "FIREFOX":
 				driver = new ProxyDriver(new FirefoxDriver());
 				break;
 
