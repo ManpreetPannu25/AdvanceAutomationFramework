@@ -9,6 +9,7 @@ import com.naveenAutomation_Base.TestBase;
 import com.naveenAutomation_Pages.AccountPage;
 import com.naveenAutomation_Pages.LoginPage;
 
+
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 
@@ -35,6 +36,13 @@ public class LoginPageTest extends TestBase {
 		loginPage = (LoginPage) loginPage.loginPageSubmission("Manpreet202025@yahoo.com", "Manu1234Manu");
 		Assert.assertEquals(loginPage.loginFailedAlertText(), "Warning: No match for E-Mail Address and/or Password.",
 				"Successfull Login");
+	}
+	@Test
+	public void validateUserCanNotLoginWithoutEmail() {
+		//Aman
+		accountPage = (AccountPage) loginPage.loginPageSubmission("", "qwerty");
+		Assert.assertEquals("Warning: No match for E-Mail Address and/or Password.", "Warning: No match for E-Mail Address and/or Password.",
+				"User logged in");
 	}
 
 	@AfterMethod
