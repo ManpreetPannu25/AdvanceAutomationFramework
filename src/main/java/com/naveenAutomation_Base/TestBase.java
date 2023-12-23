@@ -26,7 +26,7 @@ public class TestBase {
 	private final Browser DEFAULT_BROWSER = Browser.CHROME;
 	public static Logger logger;
 	public static final boolean RUN_ON_GRID = false;
-	private String browserInput;
+//	private String browserInput;
 //	public WebDriverEvents events;
 //	public EventFiringWebDriver e_driver;
 
@@ -40,7 +40,7 @@ public class TestBase {
 	}
 
 	public void initialisation() {
-		 browserInput = System.getProperty("BrowserType");
+		// browserInput = System.getProperty("BrowserType");
 		if (RUN_ON_GRID) {
 			try {
 				driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), getOption());
@@ -48,8 +48,8 @@ public class TestBase {
 				e.printStackTrace();
 			}
 		} else {
-			 switch (browserInput.toUpperCase()) {
-			//switch (DEFAULT_BROWSER) {
+			// switch (browserInput.toUpperCase()) {
+			switch (DEFAULT_BROWSER.toString()) {
 			case "CHROME":
 				driver = new ProxyDriver(new ChromeDriver());
 				break;
