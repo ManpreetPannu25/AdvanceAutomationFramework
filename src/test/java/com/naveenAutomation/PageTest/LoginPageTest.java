@@ -24,7 +24,6 @@ public class LoginPageTest extends TestBase {
 	}
 
 	@Severity(SeverityLevel.BLOCKER)
-	@Test
 	public void validateUserLoginWithValidCredentials() {
 		accountPage = (AccountPage) loginPage.loginPageSubmission("Manpreet202025@yahoo.com", "Manu1234");
 		Assert.assertEquals(accountPage.myAccountTextMsg(), "My Account", "Unsuccessfull Login");
@@ -37,13 +36,24 @@ public class LoginPageTest extends TestBase {
 		Assert.assertEquals(loginPage.loginFailedAlertText(), "Warning: No match for E-Mail Address and/or Password.",
 				"Successfull Login");
 	}
-	@Test
-	public void validateUserCanNotLoginWithoutEmail() {
-		//Aman
-		accountPage = (AccountPage) loginPage.loginPageSubmission("", "qwerty");
+	@Test(groups = "NewTestCase")
+	public void validateUserAmanCanLoginWithValidCredentials() {
+		accountPage = (AccountPage) loginPage.loginPageSubmission("andreas@email.com", "qwerty");
 		Assert.assertEquals("Warning: No match for E-Mail Address and/or Password.", "Warning: No match for E-Mail Address and/or Password.",
 				"User logged in");
 	}
+	@Test(groups = "NewTestCase1")
+	public void validateUserAmanFailedLoginWithInValidCredentials() {
+		loginPage = (LoginPage) loginPage.loginPageSubmission("Manpreet202025@yahoo.com", "Manu1234Manu");
+		Assert.assertEquals(loginPage.loginFailedAlertText(), "Warning: No match for E-Mail Address and/or Password.",
+				"Successfull Login");
+	}
+	
+	@Test(groups = "NewTestCase1")
+	public void validateUserAman1CanLoginWithValidCredentials() {
+		accountPage = (AccountPage) loginPage.loginPageSubmission("andreas@email.com", "qwerty");
+		Assert.assertEquals("Warning: No match for E-Mail Address and/or Password.", "Warning: No match for E-Mail Address and/or Password.",
+				"User logged in");
 
 	@AfterMethod
 	public void quitBrowser() {

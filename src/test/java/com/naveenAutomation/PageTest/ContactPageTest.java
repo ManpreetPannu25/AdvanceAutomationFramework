@@ -44,7 +44,7 @@ public class ContactPageTest extends TestBase {
 		Assert.assertEquals(contactPage.InvalidEnquiryWarningText(), "Enquiry must be between 10 and 3000 characters!",
 				"Enquiry Not sent");
 	}
-	@Test
+	@Test(groups = "NewTestCase")
 	public void validateWarningMsgWithInvalidFirstNameCharRange_Aman() {
 		contactPage = loginPage.contactUsClick();
 		contactPage.fillingEnquiryForm("m", "manpreet202025@yahoo.com", "Need more Product Information");
