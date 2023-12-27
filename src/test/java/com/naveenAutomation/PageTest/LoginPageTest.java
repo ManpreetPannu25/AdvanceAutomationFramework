@@ -44,6 +44,18 @@ public class LoginPageTest extends TestBase {
 		Assert.assertEquals("Warning: No match for E-Mail Address and/or Password.", "Warning: No match for E-Mail Address and/or Password.",
 				"User logged in");
 	}
+	
+	@Test(groups = "NewTestCase2")
+	public void validateUserAmanLoginWithValidCredentials() {
+		accountPage = (AccountPage) loginPage.loginPageSubmission("Manpreet202025@yahoo.com", "Manu1234");
+		Assert.assertEquals(accountPage.myAccountTextMsg(), "My Account", "Unsuccessfull Login");
+	}
+	
+	@Test(groups = "NewTestCase2")
+	public void validateUserAman1LoginWithValidCredentials() {
+		accountPage = (AccountPage) loginPage.loginPageSubmission("andreas@email.com", "qwerty");
+		Assert.assertEquals(accountPage.myAccountTextMsg(), "My Account", "Unsuccessfull Login");
+	}
 
 	@AfterMethod
 	public void quitBrowser() {
